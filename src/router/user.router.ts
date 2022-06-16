@@ -1,7 +1,7 @@
 // 用户接口路由
 // 导入路由
 import Router from '@koa/router'
-import userController from '../controller/user.controller'
+import userController from '@/controller/user.controller'
 const { register, login } = userController
 
 // 实例化路由

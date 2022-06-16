@@ -1,5 +1,5 @@
 // 用户接口控制器
-import userService from '../service/user.service'
+import userService from '@/service/user.service'
 import { Context } from 'koa'
 
 const { createUser } = userService

@@ -1,21 +1,16 @@
-import { Sequelize } from 'sequelize'
-import env from '../config/config.default'
+import mongoose from 'mongoose'
+import env from '@/config/config.default'
 
 const { MYSQL_HOST, MYSQL_PORT, MYSQL_USER, MYSQL_PWD, MYSQL_DB } = env
 
-const seq = new Sequelize(MYSQL_DB, MYSQL_USER, MYSQL_PWD, {
-  host: MYSQL_HOST,
-  port: MYSQL_PORT,
-  dialect: 'mysql'
+const DB_ADDRESS = `mongodb://${MYSQL_USER}:${MYSQL_PWD}@${MYSQL_HOST}:${MYSQL_PORT}/${MYSQL_DB}?authSource=admin`
+
+mongoose.connect(DB_ADDRESS, (err) => {
+  if (err) {
+    console.log('数据库连接失败', err)
+  } else {
+    console.log('数据库连接成功')
+  }
 })
 
-seq
-  .authenticate()
-  .then(() => {
-    console.log('数据库连接成功')
-  })
-  .catch((err) => {
-    console.log('数据库连接失败', err)
-  })
-
-export default seq
+export default mongoose
