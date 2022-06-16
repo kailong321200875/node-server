@@ -2,9 +2,8 @@
   "name": "base-template",
   "version": "1.0.0",
   "description": "A basic template, including husky, commitlint, prettier",
-  "main": "index.js",
   "scripts": {
-    "dev": "nodemon ./src/main.js",
+    "dev": "nodemon --exec ts-node ./src/main.ts",
     "npm:up": "npx npm-check-updates",
     "clean": "npx rimraf node_modules",
     "clean:cache": "npx rimraf node_modules/.cache",
@@ -24,11 +23,17 @@
   "devDependencies": {
     "@commitlint/cli": "^17.0.2",
     "@commitlint/config-conventional": "^17.0.2",
+    "@types/koa": "^2.13.4",
+    "@types/koa__router": "^8.0.11",
+    "@types/node": "^18.0.0",
     "bumpp": "^7.1.1",
     "husky": "^8.0.1",
     "lint-staged": "^13.0.1",
     "nodemon": "^2.0.16",
-    "prettier": "^2.6.2"
+    "prettier": "^2.6.2",
+    "ts-node": "^10.8.1",
+    "tslib": "^2.4.0",
+    "typescript": "^4.7.3"
   },
   "dependencies": {
     "@koa/router": "^10.1.1",

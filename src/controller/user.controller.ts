@@ -1,8 +1,11 @@
 // 用户接口控制器
-const { createUser } = require('../service/user.service')
+import userService from '../service/user.service'
+import { Context } from 'koa'
+
+const { createUser } = userService
 
 class UserController {
-  async register(ctx, next) {
+  async register(ctx: Context) {
     console.log(ctx.request.body)
 
     const { user_name, password } = ctx.request.body
@@ -13,9 +16,9 @@ class UserController {
     ctx.body = ctx.request.body
   }
 
-  async login(ctx, next) {
+  async login(ctx: Context) {
     ctx.body = '登录成功'
   }
 }
 
-module.exports = new UserController()
+export default new UserController()

@@ -1,8 +1,8 @@
 // 用户接口路由
 // 导入路由
-const Router = require('@koa/router')
-
-const { register, login } = require('../controller/user.controller')
+import Router from '@koa/router'
+import userController from '../controller/user.controller'
+const { register, login } = userController
 
 // 实例化路由
 const router = new Router({
@@ -15,4 +15,4 @@ router.post('/register', register)
 // 登录接口
 router.post('/login', login)
 
-module.exports = router
+export default router
