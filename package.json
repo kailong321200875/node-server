@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "nodemon --exec ts-node -r tsconfig-paths/register ./src/main.ts",
     "db": "ts-node -r tsconfig-paths/register ./src/db/seq.ts",
+    "dataBase": "ts-node -r tsconfig-paths/register ./src/model/user.model.ts",
     "npm:up": "npx npm-check-updates",
     "clean": "npx rimraf node_modules",
     "clean:cache": "npx rimraf node_modules/.cache",

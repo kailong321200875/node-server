@@ -1,6 +1,7 @@
 // 导出默认的环境变量
 import env from './config/config.default'
 import app from './app'
+import '@/db/seq'
 
 const { APP_PORT } = env
 

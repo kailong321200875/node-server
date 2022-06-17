@@ -6,14 +6,11 @@ const { createUser } = userService
 
 class UserController {
   async register(ctx: Context) {
-    console.log(ctx.request.body)
-
     const { user_name, password } = ctx.request.body
 
     const res = await createUser(user_name, password)
-    console.log(res)
 
-    ctx.body = ctx.request.body
+    ctx.body = res
   }
 
   async login(ctx: Context) {

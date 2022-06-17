@@ -3,7 +3,7 @@ import env from '@/config/config.default'
 
 const { MYSQL_HOST, MYSQL_PORT, MYSQL_USER, MYSQL_PWD, MYSQL_DB } = env
 
-const DB_ADDRESS = `mongodb://${MYSQL_USER}:${MYSQL_PWD}@${MYSQL_HOST}:${MYSQL_PORT}/${MYSQL_DB}?authSource=admin`
+const DB_ADDRESS = `mongodb://${MYSQL_USER}:${MYSQL_PWD}@${MYSQL_HOST}:${MYSQL_PORT}/${MYSQL_DB}`
 
 mongoose.connect(DB_ADDRESS, (err) => {
   if (err) {
@@ -13,4 +13,4 @@ mongoose.connect(DB_ADDRESS, (err) => {
   }
 })
 
-export default mongoose
+// export default mongoose
