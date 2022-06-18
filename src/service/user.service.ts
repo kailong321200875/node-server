@@ -3,11 +3,12 @@ import { IUser } from '@/model/user.model/types'
 
 // 用户接口操作数据库
 class UserService {
-  async createUser(user_name: string, password: string) {
+  async createUser(user_name: string, password: string, is_admin: number) {
     // 插入数据
     const user = await User.create({
       user_name,
-      password
+      password,
+      is_admin
     })
     return user
   }

@@ -6,4 +6,5 @@ declare interface IConfigDefault {
   MYSQL_PWD: string
   MYSQL_DB: string
   JWT_SECRET: string
+  EXPIRES_IN: string
 }
