@@ -7,13 +7,19 @@ interface Options<T> {
 }
 
 export const getResponse = <T = any>(
-  key: 'fail' | 'success' | 'error',
+  key: 'fail' | 'success' | 'error' | 'auth',
   options: Options<T>
-): IResponse<T> | undefined | Error => {
+): IResponse<T> | null | Error => {
   switch (key) {
     case 'fail':
       return {
         code: EResponseCode.FAIL,
+        message: options.message,
+        result: ''
+      }
+    case 'auth':
+      return {
+        code: EResponseCode.AUTH,
         message: options.message,
         result: ''
       }
@@ -26,6 +32,6 @@ export const getResponse = <T = any>(
     case 'error':
       return options.error
     default:
-      break
+      return null
   }
 }

@@ -13,15 +13,28 @@ class UserService {
   }
 
   async getUserInfo({ _id, user_name, password, is_admin }: Partial<ISchemaModel<IUser>>) {
-    const whereObj = {}
-    _id && Object.assign(whereObj, { _id })
-    user_name && Object.assign(whereObj, { user_name })
-    password && Object.assign(whereObj, { password })
-    is_admin && Object.assign(whereObj, { is_admin })
+    const whereOtp = {}
+    _id && Object.assign(whereOtp, { _id })
+    user_name && Object.assign(whereOtp, { user_name })
+    password && Object.assign(whereOtp, { password })
+    is_admin && Object.assign(whereOtp, { is_admin })
 
-    const res = await User.findOne(whereObj)
+    const res = await User.findOne(whereOtp)
 
     return res ? res : null
+  }
+
+  async updateUserById({ _id, user_name, password, is_admin }: Partial<ISchemaModel<IUser>>) {
+    const newUser = {
+      _id
+    }
+
+    user_name && Object.assign(newUser, { user_name })
+    password && Object.assign(newUser, { password })
+    is_admin && Object.assign(newUser, { is_admin })
+
+    const res = await User.updateOne(newUser)
+    return res.acknowledged && res.matchedCount === 1 && res.modifiedCount === 1
   }
 }
 
