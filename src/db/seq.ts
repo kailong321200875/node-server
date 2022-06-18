@@ -9,8 +9,6 @@ mongoose.connect(DB_ADDRESS, (err) => {
   if (err) {
     console.log('数据库连接失败', err)
   } else {
-    console.log('数据库连接成功')
+    console.log('\n    数据库连接成功 \n')
   }
 })
-
-// export default mongoose

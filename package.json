@@ -4,8 +4,6 @@
   "description": "A basic template, including husky, commitlint, prettier",
   "scripts": {
     "dev": "nodemon --exec ts-node -r tsconfig-paths/register ./src/main.ts",
-    "db": "ts-node -r tsconfig-paths/register ./src/db/seq.ts",
-    "dataBase": "ts-node -r tsconfig-paths/register ./src/model/user.model.ts",
     "npm:up": "npx npm-check-updates",
     "clean": "npx rimraf node_modules",
     "clean:cache": "npx rimraf node_modules/.cache",
@@ -17,16 +15,17 @@
     "prepare": "husky install"
   },
   "keywords": [
-    "template",
-    "husky",
-    "commitlint",
-    "prettier"
+    "node",
+    "server",
+    "api",
+    "koa"
   ],
   "author": "Archer <502431556@qq.com>",
   "license": "ISC",
   "devDependencies": {
     "@commitlint/cli": "^17.0.2",
     "@commitlint/config-conventional": "^17.0.2",
+    "@types/bcryptjs": "^2.4.2",
     "@types/koa": "^2.13.4",
     "@types/koa__router": "^8.0.11",
     "@types/node": "^18.0.0",
@@ -47,6 +46,7 @@
   },
   "dependencies": {
     "@koa/router": "^10.1.1",
+    "bcryptjs": "^2.4.3",
     "dotenv": "^16.0.1",
     "koa": "^2.13.4",
     "koa-body": "^5.0.0",
