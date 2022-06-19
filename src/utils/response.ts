@@ -3,7 +3,7 @@ import { EResponseCode } from '@/enum'
 interface Options<T> {
   message?: string
   error?: any
-  result?: IResult<T>
+  result?: IResult<T> | any
 }
 
 export const getResponse = <T = any>(
@@ -15,7 +15,7 @@ export const getResponse = <T = any>(
       return {
         code: EResponseCode.FAIL,
         message: options.message,
-        result: ''
+        result: options.result || ''
       }
     case 'auth':
       return {

@@ -12,4 +12,5 @@ declare interface IResult<T = any> {
 declare interface IPageResult<T> extends IResult<T> {
   pageNumber: number
   pageSize: number
+  total: number
 }

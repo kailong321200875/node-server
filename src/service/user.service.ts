@@ -26,15 +26,13 @@ class UserService {
   }
 
   async updateUserById({ _id, user_name, password, is_admin }: Partial<ISchemaModel<IUser>>) {
-    const newUser = {
-      _id
-    }
+    const newUser = {}
 
     user_name && Object.assign(newUser, { user_name })
     password && Object.assign(newUser, { password })
     is_admin && Object.assign(newUser, { is_admin })
 
-    const res = await User.updateOne(newUser)
+    const res = await User.updateOne({ _id }, newUser)
     return res.acknowledged && res.matchedCount === 1 && res.modifiedCount === 1
   }
 }

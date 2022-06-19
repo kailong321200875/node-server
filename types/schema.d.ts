@@ -1,5 +1,5 @@
 declare type ISchemaModel<T = any> = {
-  // _id?: string
+  _id?: string
   createdAt?: number
   updatedAt?: number
   [key: string]: any
