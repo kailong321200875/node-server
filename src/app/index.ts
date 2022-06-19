@@ -18,7 +18,8 @@ app
       formidable: {
         uploadDir: path.join(__dirname, '../upload'),
         keepExtensions: true
-      }
+      },
+      parsedMethods: ['POST', 'PUT', 'PATCH', 'DELETE']
     })
   )
   .use(koaStatic(path.join(__dirname, '../upload')))
