@@ -1,13 +1,6 @@
-declare type ISchemaModel<T = any> = {
+declare interface ISchemaModel {
   _id?: string
   createdAt?: number
   updatedAt?: number
   [key: string]: any
-} & T
-
-// declare interface ISchemaModel<T = any> extends T {
-//   _id?: string
-//   createdAt?: number
-//   updatedAt?: number
-//   [key: string]: any
-// }
+}

@@ -1,5 +1,5 @@
 import mongoose from 'mongoose'
-import env from '@/config/config.default'
+import env from '@/config'
 
 const { MYSQL_HOST, MYSQL_PORT, MYSQL_USER, MYSQL_PWD, MYSQL_DB } = env
 
