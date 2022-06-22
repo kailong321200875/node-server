@@ -1,6 +1,7 @@
 // 用户接口路由
 import Router from '@koa/router'
 import { userRegisterValidator } from '@/middleware/validator'
+import { createCaptcha } from '@/middleware/captcha'
 // import userController from '@/controller/user'
 
 // const { register, login, changePassword } = userController
@@ -11,5 +12,7 @@ const router = new Router({
 })
 
 router.post('/register', userRegisterValidator)
+
+router.get('/captcha', createCaptcha)
 
 export default router

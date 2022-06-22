@@ -3,4 +3,5 @@ export interface IUserModel extends ISchemaModel {
   password: string
   check_password: string
   is_admin: number
+  code: string | number
 }

@@ -14,13 +14,15 @@ const UserSchema = new mongoose.Schema(
       required: true
     },
     check_password: {
-      type: String,
-      required: true
+      type: String
     },
     // 是否为管理员，1 是管理员，0 不是管理员
     is_admin: {
       type: Number,
       default: 0
+    },
+    code: {
+      type: [String, Number]
     }
   },
   {
