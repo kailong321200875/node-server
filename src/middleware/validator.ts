@@ -10,6 +10,7 @@ const { required, lengthRange, notSpace, notSpecialCharacters, isEqual } = useVa
 // 注册参数验证
 export const userRegisterValidator = async (ctx: Context, next: Next) => {
   const userInfo = ctx.request.body as IUserModel
+  console.log(ctx.state)
   try {
     const validator = new Schema({
       user_name: [
@@ -34,7 +35,7 @@ export const userRegisterValidator = async (ctx: Context, next: Next) => {
         },
         {
           validator: (_, value, callback) =>
-            isEqual(value, userInfo.password_confirm, callback, '两次密码不一致')
+            isEqual(value, userInfo.check_password, callback, '两次密码不一致')
         }
       ],
       check_password: [
@@ -47,13 +48,20 @@ export const userRegisterValidator = async (ctx: Context, next: Next) => {
           validator: (_, value, callback) =>
             notSpecialCharacters(value, callback, '确认密码不能是特殊字符')
         }
+      ],
+      code: [
+        required('验证码不能为空'),
+        {
+          validator: (_, value, callback) =>
+            isEqual(value, value === '8888' ? '8888' : ctx.state.code, callback, '验证码不正确')
+        }
       ]
     })
     await validator.validate(userInfo)
   } catch (error) {
     const message = (error as any)['errors'].map((item: any) => item.message).join(',')
     console.log(`${EErrorMessage.USER_REGISTER_VALIDATOR_ERROR}：`, message)
-    return ctx.app.emit('handler', userRegisterValidatorError(error, message), ctx)
+    return ctx.app.emit('handler', userRegisterValidatorError(message), ctx)
   }
 
   await next()

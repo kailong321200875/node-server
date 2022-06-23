@@ -43,6 +43,7 @@ export const useValidator = () => {
 
   // 两个字符串是否想等
   const isEqual = (val1: string, val2: string, callback: Callback, message: string) => {
+    console.log(val1, val2)
     if (val1 === val2) {
       callback()
     } else {

@@ -6,11 +6,23 @@ import { handler } from '@/utils'
 import path from 'path'
 import koaStatic from 'koa-static'
 // import parameter from 'koa-parameter'
+import session from 'koa-session'
 
 // 初始化koa
 const app = new Koa()
 
 app
+  .use(
+    session(
+      {
+        key: 'koa:sess',
+        maxAge: 1000 * 60 * 20,
+        rolling: false,
+        renew: false
+      },
+      app
+    )
+  )
   .use(
     KoaBody({
       // 允许上传文件
