@@ -26,6 +26,7 @@
     "@commitlint/cli": "^17.0.2",
     "@commitlint/config-conventional": "^17.0.2",
     "@types/bcryptjs": "^2.4.2",
+    "@types/js-md5": "^0.4.3",
     "@types/jsonwebtoken": "^8.5.8",
     "@types/koa": "^2.13.4",
     "@types/koa-session": "^5.10.6",
@@ -49,16 +50,19 @@
   },
   "dependencies": {
     "@koa/router": "^10.1.1",
+    "@types/uuid": "^8.3.4",
     "async-validator": "^4.2.5",
     "bcryptjs": "^2.4.3",
     "dotenv": "^16.0.1",
+    "js-md5": "^0.7.3",
     "jsonwebtoken": "^8.5.1",
     "koa": "^2.13.4",
     "koa-body": "^5.0.0",
-    "koa-parameter": "^3.0.1",
-    "koa-session": "^6.2.0",
     "koa-static": "^5.0.0",
     "mongoose": "^6.3.8",
-    "svg-captcha": "^1.4.0"
+    "mongoose-timestamp-date-unix": "^0.6.2",
+    "node-cache": "^5.1.2",
+    "svg-captcha": "^1.4.0",
+    "uuid": "^8.3.2"
   }
 }
